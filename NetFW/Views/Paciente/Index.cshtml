@@ -1,0 +1,49 @@
+﻿@model IEnumerable<NetFW.ServicoSoapPaciente.PacienteTO>
+
+@{
+    ViewBag.Title = "Meus Pacientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Meus Pacientes</h2>
+
+<p>
+    @Html.ActionLink("Novo Paciente", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Lero</th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeMae)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nascimento)
+        </th>
+        <th></th>
+    </tr>
+    
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @ViewBag.luiz
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeMae)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nascimento)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
